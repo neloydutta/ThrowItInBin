@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Throw-It-In-Bin</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author>Neloy Dutta</author>
+    <author-email>neloy.dutta@live.com</author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>y1srj710cxp8</unique-id>
+    <saved-with-version>23900</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>465</width>
+        <height>720</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="background" sid="137214230853320">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\Road2.jpg" />
+        </object-type>
+        <object-type name="trash" sid="776654330119826">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="735091881603471">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="271076898690368">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="864994719415740" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\trash2.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.42668" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.522857" />
+                            <point x="1" y="1" />
+                            <point x="0.614053" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.511429" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="score" sid="216317840092139">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="count" sid="406640802357777">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Touch" sid="919396740000485">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="bin" sid="970752905964688">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="309544700507047">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="530083067375092">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="520345090684833" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\bin.png">
+                        <collision-poly>
+                            <point x="0" y="1" />
+                            <point x="0" y="0.5" />
+                            <point x="0" y="0" />
+                            <point x="0.5" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.39372" />
+                            <point x="1" y="1" />
+                            <point x="0.297101" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="gobackground" sid="543318500748653">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="gameover" sid="732627814088885">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="133575966891573" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\gameover.png">
+                        <collision-poly>
+                            <point x="0.0296875" y="0.0655172" />
+                            <point x="0.5" y="0.0310345" />
+                            <point x="0.985937" y="0.0310345" />
+                            <point x="0.919792" y="0.822989" />
+                            <point x="0.5" y="0.449425" />
+                            <point x="0.053125" y="0.882759" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="goscore" sid="225812492613647">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="gohighscore" sid="803218745715867">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="LocalStorage" sid="427436011923646">
+            <plugin id="LocalStorage" />
+        </object-type>
+        <object-type name="replay" sid="704956742260554">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="365104403603464">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="634176014869579" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\replay.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.477778" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.464444" />
+                            <point x="1" y="1" />
+                            <point x="0.797778" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.7" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="menubackground" sid="224740177518612">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="art" sid="424860724184918">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="651070446427967">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="607235698885502" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500359" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\art.png">
+                        <collision-poly>
+                            <point x="0.227333" y="0.244795" />
+                            <point x="0.5" y="0.167983" />
+                            <point x="0.839333" y="0.173008" />
+                            <point x="0.872" y="0.499641" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="title" sid="500445899572996">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="play" sid="520331903575222">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="222112893338671">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="581863539630252" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500677" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\play.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.5" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.748308" />
+                            <point x="1" y="1" />
+                            <point x="0.544693" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.488498" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="instructions" sid="557229064920475">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Sprite" sid="593511835673878">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="365789326447740">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="150945652027475" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.50069" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\instructions.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Button" sid="805964519552568">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Sprite2" sid="623365197876691">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="268551206045068">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="910654357744260" speed="5">
+                    <frame duration="1" hotspotX="0.501805" hotspotY="0.505882" original-source="C:\Users\Neloy\Desktop\TP\PROJECTS\Throw-It-In-Bin\Assets\Untitled.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>gameplay.xml</layout>
+        <layout>menu.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>gameplayes.xml</event-sheet>
+        <event-sheet>menues.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="4">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="LocalStorage" uid="10" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

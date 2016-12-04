@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>gameplayes</name>
+    <events>
+        <variable constant="0" name="HighScore" sid="941985047968777" static="0" type="number">0</variable>
+        <variable constant="0" name="GameOverFlag" sid="257722515891252" static="0" type="number">0</variable>
+        <variable constant="0" name="TimeScaleUtil" sid="798899433096842" static="0" type="number">2</variable>
+        <variable constant="0" name="score" sid="457493523964439" static="0" type="number">0</variable>
+        <variable constant="0" name="CollectedTrash" sid="910332036938965" static="0" type="number">0</variable>
+        <variable constant="0" name="MissedTrash" sid="242450114726836" static="0" type="number">0</variable>
+        <variable constant="0" name="TotalAvailableTrash" sid="438993777214359" static="0" type="number">1</variable>
+        <variable constant="0" name="MaxAllowedTrash" sid="462909820262532" static="0" type="number">4</variable>
+        <event-block sid="169419586439825">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="769248566627349" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="244263653249739" type="trash">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="145608672232331" type="bin">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="574967444647046" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="5" name="Check item exists" sid="260359749270805" type="LocalStorage">
+                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Background Continuity</comment>
+        <event-block sid="411979425443746">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="257298318605478" type="System" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="181282565010298" type="background">
+                    <param id="0" name="Y">Self.Y+2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="966914028510443">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="325634053898614" type="background">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="317819193559835" type="background">
+                    <param id="0" name="Y">-717</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Trash Creation and Collection</comment>
+        <event-block sid="989530851819234">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="226230808364408" type="System">
+                    <param id="0" name="First value">TotalAvailableTrash</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Second value">MaxAllowedTrash</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="519723927792762" type="System">
+                    <param id="0" name="Object to create">trash</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">random(100,400)</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="677383213471385" type="trash">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action id="-10" name="Add to" sid="796582043499360" type="System">
+                    <param id="0" name="Variable">TotalAvailableTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="751611059323088">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="172341645261227" type="trash">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">740</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="596220409380922" type="trash" />
+                <action id="-11" name="Subtract from" sid="122402803249407" type="System">
+                    <param id="0" name="Variable">TotalAvailableTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="592641309534598" type="System">
+                    <param id="0" name="Variable">MissedTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="676921202587698">
+            <conditions>
+                <condition id="17" name="On tap object" sid="695305105762034" type="Touch">
+                    <param id="0" name="Object">trash</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="372485689659624" type="System">
+                    <param id="0" name="Variable">CollectedTrash</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">10</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="574665424203640" type="trash" />
+                <action id="-11" name="Subtract from" sid="148577788362325" type="System">
+                    <param id="0" name="Variable">TotalAvailableTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="382189108316869" type="System">
+                    <param id="0" name="Variable">CollectedTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="104099800825977" type="count">
+                    <param id="0" name="Text">&quot;Count: &quot;&amp;CollectedTrash</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Bin Creation | Avoid Overlap with trash | Dropping Trash</comment>
+        <event-block sid="295252478317278">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="994127245534972" type="System">
+                    <param id="0" name="Interval (seconds)">1+random(3)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="630293618276612" type="System">
+                    <param id="0" name="Object to create">bin</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">43</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="582708158680669" type="bin">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="867843394007512">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="240582415570396" type="bin">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">740</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="917650300145241" type="bin" />
+            </actions>
+        </event-block>
+        <event-block sid="872719460782858">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="168834167895381" type="trash">
+                    <param id="0" name="Object">bin</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="173526113291948" type="trash" />
+                <action id="-11" name="Subtract from" sid="115811324242957" type="System">
+                    <param id="0" name="Variable">TotalAvailableTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="188901472883568">
+            <conditions>
+                <condition id="17" name="On tap object" sid="212456909829490" type="Touch">
+                    <param id="0" name="Object">bin</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="785945306120194" type="System">
+                    <param id="0" name="Variable">CollectedTrash</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="680355890154804" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="929051434609172" type="System">
+                    <param id="0" name="Variable">CollectedTrash</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="329670212843129" type="score">
+                    <param id="0" name="Text">&quot;Score: &quot;&amp;score</param>
+                </action>
+                <action id="0" name="Set text" sid="555226553916526" type="count">
+                    <param id="0" name="Text">&quot;Count: &quot;&amp;CollectedTrash</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Game Over | Updating Speed</comment>
+        <event-block sid="621577368669886">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="492764427893661" type="System">
+                    <param id="0" name="Interval (seconds)">30/TimeScaleUtil</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="266989974149909" type="System">
+                    <param id="0" name="Variable">GameOverFlag</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="382851610065484" type="System">
+                    <param id="0" name="Time scale">timescale+0.2</param>
+                </action>
+                <action id="-10" name="Add to" sid="573923051944329" type="System">
+                    <param id="0" name="Variable">TimeScaleUtil</param>
+                    <param id="1" name="Value">0.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="137113109057204">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="951035747214863" type="System">
+                    <param id="0" name="Variable">MissedTrash</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">20</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="544990028189025" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="931397303720714" type="System">
+                    <param id="0" name="Variable">GameOverFlag</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="283492138164991" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="286940959134703" type="goscore">
+                    <param id="0" name="Text">&quot;Score: &quot;&amp;score</param>
+                </action>
+                <action id="0" name="Set text" sid="656021837528894" type="gohighscore">
+                    <param id="0" name="Text">&quot;HighScore: &quot;&amp;HighScore</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Game-Over-Layer</comment>
+        <event-block sid="278197231280340">
+            <conditions>
+                <condition id="17" name="On tap object" sid="437628415497658" type="Touch">
+                    <param id="0" name="Object">replay</param>
+                </condition>
+                <condition id="-9" name="Layer is visible" sid="652189795690104" type="System">
+                    <param id="0" name="Layer">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="898784879866557" type="System" />
+                <action id="-26" name="Restart layout" sid="989424724968061" type="System" />
+                <action id="-13" name="Set time scale" sid="460899716373173" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>HIghScore</comment>
+        <event-block sid="937579276716470">
+            <conditions>
+                <condition id="9" name="On item exists" sid="728716751396894" type="LocalStorage">
+                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="394949425993333" type="System">
+                    <param id="0" name="Variable">HighScore</param>
+                    <param id="1" name="Value">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="214672463677113">
+            <conditions>
+                <condition id="10" name="On item missing" sid="454520213597998" type="LocalStorage">
+                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set item" sid="471553876914082" type="LocalStorage">
+                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="722316290027827">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="949858448470878" type="System">
+                    <param id="0" name="First value">score</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">HighScore</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="449969465015686" type="System">
+                    <param id="0" name="Variable">HighScore</param>
+                    <param id="1" name="Value">score</param>
+                </action>
+                <action id="0" name="Set item" sid="208327793153568" type="LocalStorage">
+                    <param id="0" name="Key">&quot;HighScore&quot;</param>
+                    <param id="1" name="Value">HighScore</param>
+                </action>
+                <action id="0" name="Set text" sid="716602956059875" type="gohighscore">
+                    <param id="0" name="Text">&quot;HighScore: &quot;&amp;HighScore</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
